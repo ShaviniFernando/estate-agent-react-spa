@@ -1,16 +1,108 @@
-# React + Vite
+# Estate Agent React SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page estate agent web application built with React and Vite for the 5COSC026W Advanced Client-Side Web Development coursework. Inspired by rightmove.co.uk, it lets a user search a portfolio of properties by type, price, bedrooms, date added, and postcode area, view full property details with an image gallery, floor plan and map, and manage a favourites list via drag-and-drop or buttons.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Multi-criteria search** — filter properties by any combination of type, min/max price, min/max bedrooms, date added (after / between), and postcode area
+- **Enhanced search form** — built with React widget components (select, date picker, range slider) for a consistent, accessible UI
+- **Results display** — property cards with image, price, location, and short description, each linking to a full details page
+- **Property details page** — large image gallery with thumbnails, and tabbed content (description / floor plan / Google Map)
+- **Favourites** — add a property via a favourite button or by dragging its card onto the favourites list; remove via a delete button or by dragging out; clear the whole list in one click; duplicates are prevented
+- **Favourites on the search page** — the current favourites list is visible and updates live while searching
+- **Responsive design** — a large-screen layout and a distinct layout below iPad-landscape width, using hand-written media queries with CSS Grid/Flexbox
+- **Client-side security** — a Content-Security-Policy meta tag and sanitized rendering of property descriptions
+- **Automated tests** — Jest/Vitest tests covering the search filter logic and the favourites state management
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- [React Router](https://reactrouter.com/) for client-side routing
+- React Context + `useReducer` for favourites state
+- React widget libraries for form inputs (see `package.json`)
+- [react-tabs](https://github.com/reactjs/react-tabs) for the property details tabs
+- [Vitest](https://vitest.dev/) + [React Testing Library](https://testing-library.com/) for testing
+- Deployed via GitHub Pages (or Vercel/Netlify — see Deployment below)
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+estate-agent/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Navbar.jsx
+│   │   ├── SearchForm.jsx
+│   │   ├── PropertyCard.jsx
+│   │   ├── PropertyList.jsx
+│   │   ├── ImageGallery.jsx
+│   │   └── FavouriteList.jsx
+│   ├── context/
+│   │   └── FavouritesContext.jsx
+│   ├── data/
+│   │   └── properties.js
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   └── PropertyDetails.jsx
+│   ├── styles/
+│   │   └── main.css
+│   ├── utils/
+│   │   └── search.js
+│   ├── App.jsx
+│   └── main.jsx
+├── tests/
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+## Getting Started
+
+### Prerequisites
+- [Node.js](https://nodejs.org/) v18 or later
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/ShaviniFernando/estate-agent-react-spa.git
+cd estate-agent-react-spa
+npm install
+```
+
+### Available Scripts
+
+```bash
+npm run dev       # start the development server
+npm run build     # build for production
+npm run preview   # preview the production build locally
+npm run lint      # run ESLint
+npm test          # run the test suite
+```
+
+## Property Data
+
+Sample property data is provided in `src/data/properties.js`. Each property includes its type, price, bedrooms, tenure, location, postcode, description, an image gallery, a floor plan image, a Google Maps embed URL, and the date it was added. The dataset is loaded directly into the frontend — no backend or server is required.
+
+## Testing
+
+Run the test suite with:
+
+```bash
+npm test
+```
+
+Tests cover the property search/filter logic and the favourites add/remove/clear behaviour, including duplicate prevention.
+
+## Deployment
+
+- **Live URL:** _add your deployed link here_
+- **Repository:** https://github.com/ShaviniFernando/estate-agent-react-spa
+
+## Security
+
+This application implements a Content-Security-Policy via a meta tag in `index.html`, and sanitizes any property description HTML before rendering to prevent client-side injection.
+
+## Author
+
+Shavini Fernando — coursework submission for 5COSC026W, University of Westminster, 2025/26.
