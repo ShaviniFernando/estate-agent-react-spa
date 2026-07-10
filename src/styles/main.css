@@ -88,3 +88,24 @@
   max-width: 100%;
   border-radius: 6px;
 }
+
+@media (max-width: 768px) {
+  .property-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .search-form > div {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+
+  .gallery-main {
+    flex-direction: column;
+  }
+
+  .gallery-main img {
+    max-width: 100%;
+    max-height: none;
+  }
+}
