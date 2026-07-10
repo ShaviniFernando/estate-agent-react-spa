@@ -1,41 +1,181 @@
-/* Main stylesheet for the Estate Agent application */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  color: #333;
+}
+
+h1, h2, h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+header {
+  background-color: #1a2b4c;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Global container padding so it's not flush to edges on desktop */
+#root > div:not(header) {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 2rem;
+}
+
+button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #004d99;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Search Form */
+.search-form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.search-form > div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 140px;
+}
+
+.search-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #555;
+}
+
+.search-form input,
+.search-form select {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+.search-form input:focus,
+.search-form select:focus {
+  outline: none;
+  border-color: #0066cc;
+}
+
+/* Property Grid */
 .property-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
 .property-card {
-  border: 1px solid #ddd;
-  padding: 1rem;
+  background-color: white;
+  border: 1px solid transparent;
+  padding: 1.5rem;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .property-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
   border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.property-card h3 {
+  color: #0066cc;
+  margin: 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.property-card p {
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.property-card button {
   margin-bottom: 0.5rem;
 }
 
+.property-card a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  background-color: #f0f4f8;
+  color: #0066cc;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.property-card a:hover {
+  background-color: #e1eaf2;
+}
+
+/* Gallery */
 .gallery-main {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .gallery-main img {
   flex: 1;
-  max-height: 400px;
+  max-height: 500px;
   width: 100%;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .thumbnail-row {
@@ -46,42 +186,64 @@
 }
 
 .thumbnail {
-  width: 70px;
-  height: 50px;
+  width: 80px;
+  height: 60px;
   object-fit: cover;
   border-radius: 4px;
   cursor: pointer;
   border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.thumbnail:hover {
+  border-color: #99c2ff;
 }
 
 .thumbnail.active {
   border: 2px solid #0066cc;
 }
 
+/* Tabs */
 .tab-buttons {
   display: flex;
   gap: 0.5rem;
-  margin: 1rem 0 0.5rem;
+  margin: 2rem 0 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0;
 }
 
 .tab-button {
-  padding: 0.4rem 1rem;
-  border: 1px solid #ccc;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid transparent;
   background: none;
+  color: #555;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 6px 6px 0 0;
   font-size: 0.95rem;
+  margin-bottom: -1px; /* Overlap the border-bottom of .tab-buttons */
+  transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+  background-color: #f0f4f8;
+  color: #333;
 }
 
 .tab-button.active {
-  font-weight: bold;
-  border-bottom: 3px solid #0066cc;
-  border-radius: 4px 4px 0 0;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-bottom: 1px solid white; /* Hide the line under the active tab */
+  border-top: 3px solid #0066cc;
   color: #0066cc;
+  background-color: white;
 }
 
 .tab-content {
-  margin-top: 0.5rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  line-height: 1.6;
 }
 
 .tab-content img {
@@ -89,15 +251,56 @@
   border-radius: 6px;
 }
 
+.tab-content iframe {
+  border: none;
+  border-radius: 6px;
+}
+
+/* Favourite List */
+.favourite-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.favourite-list li {
+  background-color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #0066cc;
+}
+
+.favourite-list li span {
+  font-weight: 500;
+  color: #333;
+}
+
 @media (max-width: 768px) {
   .property-grid {
     grid-template-columns: 1fr;
+  }
+
+  .search-form {
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .search-form > div {
     display: block;
     width: 100%;
     margin-bottom: 0.75rem;
+  }
+  
+  .search-form input,
+  .search-form select {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .gallery-main {
@@ -107,5 +310,20 @@
   .gallery-main img {
     max-width: 100%;
     max-height: none;
+  }
+  
+  .tab-buttons {
+    flex-direction: column;
+    border-bottom: none;
+  }
+  
+  .tab-button {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+  
+  .tab-button.active {
+    border-bottom: 1px solid #ddd;
   }
 }
