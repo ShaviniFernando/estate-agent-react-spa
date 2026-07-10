@@ -3,6 +3,15 @@ import properties from '../data/properties';
 import PropertyList from '../components/PropertyList';
 import FavouriteList from '../components/FavouriteList';
 import { filterProperties } from '../utils/filterProperties';
+import Select from 'react-select';
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
+
+const typeOptions = [
+  { value: 'Any', label: 'Any' },
+  { value: 'House', label: 'House' },
+  { value: 'Flat', label: 'Flat' }
+];
 
 export default function Home({ favourites, addFavourite, removeFavourite, clearFavourites }) {
   const [criteria, setCriteria] = useState({
@@ -33,40 +42,28 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
       <form className="search-form" onSubmit={(e) => e.preventDefault()}>
         <div>
           <label htmlFor="type">Property Type</label>
-          <select
-            id="type"
-            name="type"
-            value={criteria.type}
-            onChange={handleChange}
-          >
-            <option value="Any">Any</option>
-            <option value="House">House</option>
-            <option value="Flat">Flat</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="minPrice">Min Price (£)</label>
-          <input
-            type="number"
-            id="minPrice"
-            name="minPrice"
-            value={criteria.minPrice}
-            onChange={handleChange}
-            placeholder="Min Price"
+          <Select
+            inputId="type"
+            options={typeOptions}
+            value={typeOptions.find(opt => opt.value === criteria.type)}
+            onChange={(selectedOption) => setCriteria(prev => ({...prev, type: selectedOption.value}))}
           />
         </div>
 
-        <div>
-          <label htmlFor="maxPrice">Max Price (£)</label>
-          <input
-            type="number"
-            id="maxPrice"
-            name="maxPrice"
-            value={criteria.maxPrice}
-            onChange={handleChange}
-            placeholder="Max Price"
+        <div style={{ minWidth: '250px' }}>
+          <label>Price Range (£)</label>
+          <Slider
+            range
+            min={0}
+            max={1500000}
+            step={5000}
+            value={[Number(criteria.minPrice) || 0, Number(criteria.maxPrice) || 1500000]}
+            onChange={(val) => setCriteria(prev => ({...prev, minPrice: val[0], maxPrice: val[1]}))}
           />
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem', fontSize: '0.85rem', color: '#555' }}>
+            <span>£{(Number(criteria.minPrice) || 0).toLocaleString()}</span>
+            <span>£{(Number(criteria.maxPrice) || 1500000).toLocaleString()}</span>
+          </div>
         </div>
 
         <div>

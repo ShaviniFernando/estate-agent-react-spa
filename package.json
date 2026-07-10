@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "dompurify": "^3.4.11",
+    "rc-slider": "^11.1.9",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "react-router-dom": "^7.18.1"
+    "react-router-dom": "^7.18.1",
+    "react-select": "^5.10.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
