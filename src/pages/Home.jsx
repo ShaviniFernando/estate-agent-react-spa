@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import properties from '../data/properties';
 import PropertyList from '../components/PropertyList';
+import FavouriteList from '../components/FavouriteList';
 
 export default function Home({ favourites, addFavourite, removeFavourite }) {
   const [criteria, setCriteria] = useState({
@@ -133,6 +134,8 @@ export default function Home({ favourites, addFavourite, removeFavourite }) {
           />
         </div>
       </form>
+
+      <FavouriteList favourites={favourites} removeFavourite={removeFavourite} />
 
       <PropertyList 
         properties={filteredProperties} 
