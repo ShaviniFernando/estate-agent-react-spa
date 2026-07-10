@@ -1,12 +1,14 @@
 import properties from '../data/properties';
 
-export default function FavouriteList({ favourites, removeFavourite }) {
+export default function FavouriteList({ favourites, removeFavourite, clearFavourites }) {
   if (favourites.length === 0) {
     return <p>No favourites yet.</p>;
   }
 
   return (
-    <ul className="favourite-list">
+    <div>
+      <button onClick={clearFavourites}>Clear all</button>
+      <ul className="favourite-list">
       {favourites.map((id) => {
         const property = properties.find((p) => p.id === id);
         if (!property) return null;
@@ -17,6 +19,7 @@ export default function FavouriteList({ favourites, removeFavourite }) {
           </li>
         );
       })}
-    </ul>
+      </ul>
+    </div>
   );
 }

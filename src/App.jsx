@@ -19,6 +19,8 @@ export default function App() {
     setFavourites((prev) => prev.filter((favId) => favId !== id));
   };
 
+  const clearFavourites = () => setFavourites([]);
+
   return (
     <>
       <Navbar />
@@ -31,6 +33,7 @@ export default function App() {
               favourites={favourites} 
               addFavourite={addFavourite} 
               removeFavourite={removeFavourite} 
+              clearFavourites={clearFavourites}
             />
           } 
         />
