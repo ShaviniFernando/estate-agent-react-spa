@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import properties from '../data/properties';
+import ImageGallery from '../components/ImageGallery';
 
 export default function PropertyDetails() {
   const { id } = useParams();
@@ -16,7 +17,7 @@ export default function PropertyDetails() {
   return (
     <div className="property-details">
       <h1>{property.location}</h1>
-      <img src={property.images[0]} alt={property.shortDescription} />
+      <ImageGallery images={property.images} />
       <div>
         <h2>{property.type}</h2>
         <h3>£{property.price.toLocaleString()}</h3>

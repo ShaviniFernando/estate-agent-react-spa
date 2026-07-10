@@ -22,3 +22,39 @@
   border-radius: 6px;
   margin-bottom: 0.5rem;
 }
+
+.gallery-main {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-main img {
+  flex: 1;
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.thumbnail-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumbnail.active {
+  border: 2px solid #0066cc;
+}
+
