@@ -14,7 +14,10 @@ export default function PropertyCard({ property, favourites, addFavourite, remov
     <div 
       className="property-card"
       draggable="true"
-      onDragStart={(e) => e.dataTransfer.setData('text/plain', property.id)}
+      onDragStart={(e) => {
+        e.dataTransfer.setData('text/plain', `card:${property.id}`);
+        e.dataTransfer.effectAllowed = 'move';
+      }}
     >
       <img src={property.images[0]} alt={property.shortDescription} />
       <div>
