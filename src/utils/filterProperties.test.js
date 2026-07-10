@@ -53,4 +53,32 @@ describe('filterProperties', () => {
     });
     expect(result).toHaveLength(0);
   });
+
+  it('filters by dateFrom correctly', () => {
+    // Only properties added on or after 2024-01-01
+    const result = filterProperties(properties, { ...defaultCriteria, dateFrom: '2024-01-01' });
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach((p) => expect(p.addedDate >= '2024-01-01').toBe(true));
+  });
+
+  it('filters by dateTo correctly', () => {
+    // Only properties added on or before 2023-12-31
+    const result = filterProperties(properties, { ...defaultCriteria, dateTo: '2023-12-31' });
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach((p) => expect(p.addedDate <= '2023-12-31').toBe(true));
+  });
+
+  it('filters by date range (dateFrom and dateTo)', () => {
+    // Properties between 2023-01-01 and 2024-12-31
+    const result = filterProperties(properties, {
+      ...defaultCriteria,
+      dateFrom: '2023-01-01',
+      dateTo: '2024-12-31',
+    });
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach((p) => {
+      expect(p.addedDate >= '2023-01-01').toBe(true);
+      expect(p.addedDate <= '2024-12-31').toBe(true);
+    });
+  });
 });

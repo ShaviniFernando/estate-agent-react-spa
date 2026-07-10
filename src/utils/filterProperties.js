@@ -43,6 +43,16 @@ export function filterProperties(properties, criteria) {
         return false;
       }
     }
+    if (criteria.dateFrom && criteria.dateFrom !== '') {
+      if (property.addedDate < criteria.dateFrom) {
+        return false;
+      }
+    }
+    if (criteria.dateTo && criteria.dateTo !== '') {
+      if (property.addedDate > criteria.dateTo) {
+        return false;
+      }
+    }
     return true;
   });
 }

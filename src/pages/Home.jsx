@@ -11,7 +11,9 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
     maxPrice: '',
     minBedrooms: '',
     maxBedrooms: '',
-    postcode: ''
+    postcode: '',
+    dateFrom: '',
+    dateTo: ''
   });
 
   const handleChange = (e) => {
@@ -100,6 +102,28 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
             value={criteria.postcode}
             onChange={handleChange}
             placeholder="e.g. BR5"
+          />
+        </div>
+
+        <div>
+          <label htmlFor="dateFrom">Added After</label>
+          <input
+            type="date"
+            id="dateFrom"
+            name="dateFrom"
+            value={criteria.dateFrom}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div>
+          <label htmlFor="dateTo">Added Before</label>
+          <input
+            type="date"
+            id="dateTo"
+            name="dateTo"
+            value={criteria.dateTo}
+            onChange={handleChange}
           />
         </div>
       </form>
