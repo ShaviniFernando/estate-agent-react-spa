@@ -2,6 +2,7 @@ import { useState } from 'react';
 import properties from '../data/properties';
 import PropertyList from '../components/PropertyList';
 import FavouriteList from '../components/FavouriteList';
+import { filterProperties } from '../utils/filterProperties';
 
 export default function Home({ favourites, addFavourite, removeFavourite, clearFavourites }) {
   const [criteria, setCriteria] = useState({
@@ -21,39 +22,7 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
     }));
   };
 
-  const filteredProperties = properties.filter((property) => {
-    if (criteria.type && criteria.type !== 'Any') {
-      if (property.type !== criteria.type) {
-        return false;
-      }
-    }
-    if (criteria.minPrice !== '') {
-      if (property.price < Number(criteria.minPrice)) {
-        return false;
-      }
-    }
-    if (criteria.maxPrice !== '') {
-      if (property.price > Number(criteria.maxPrice)) {
-        return false;
-      }
-    }
-    if (criteria.minBedrooms !== '') {
-      if (property.bedrooms < Number(criteria.minBedrooms)) {
-        return false;
-      }
-    }
-    if (criteria.maxBedrooms !== '') {
-      if (property.bedrooms > Number(criteria.maxBedrooms)) {
-        return false;
-      }
-    }
-    if (criteria.postcode !== '') {
-      if (!property.postcode.toLowerCase().startsWith(criteria.postcode.toLowerCase())) {
-        return false;
-      }
-    }
-    return true;
-  });
+  const filteredProperties = filterProperties(properties, criteria);
 
   return (
     <div>

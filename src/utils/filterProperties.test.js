@@ -1,0 +1,56 @@
+import { describe, it, expect } from 'vitest';
+import { filterProperties } from './filterProperties';
+import properties from '../data/properties';
+
+const defaultCriteria = {
+  type: 'Any',
+  minPrice: '',
+  maxPrice: '',
+  minBedrooms: '',
+  maxBedrooms: '',
+  postcode: '',
+};
+
+describe('filterProperties', () => {
+  it('returns all 7 properties when criteria has all empty/default values', () => {
+    const result = filterProperties(properties, defaultCriteria);
+    expect(result).toHaveLength(7);
+  });
+
+  it('returns only House properties when type is "House"', () => {
+    const result = filterProperties(properties, { ...defaultCriteria, type: 'House' });
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach((p) => expect(p.type).toBe('House'));
+  });
+
+  it('returns only properties with price >= minPrice when minPrice is set', () => {
+    const result = filterProperties(properties, { ...defaultCriteria, minPrice: '500000' });
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach((p) => expect(p.price).toBeGreaterThanOrEqual(500000));
+  });
+
+  it('combines type + minBedrooms + postcode filters and returns the correct subset', () => {
+    // properties.js: prop1 is a House, 3 bed, BR5 — should match
+    // prop5 is a Flat (not a House) in BR5 — should NOT match
+    const result = filterProperties(properties, {
+      ...defaultCriteria,
+      type: 'House',
+      minBedrooms: '3',
+      postcode: 'BR',
+    });
+    expect(result.length).toBeGreaterThan(0);
+    result.forEach((p) => {
+      expect(p.type).toBe('House');
+      expect(p.bedrooms).toBeGreaterThanOrEqual(3);
+      expect(p.postcode.toLowerCase()).toMatch(/^br/);
+    });
+  });
+
+  it('returns an empty array when criteria excludes every property', () => {
+    const result = filterProperties(properties, {
+      ...defaultCriteria,
+      minPrice: '99999999',
+    });
+    expect(result).toHaveLength(0);
+  });
+});
