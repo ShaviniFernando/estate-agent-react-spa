@@ -18,7 +18,7 @@ export const properties = [
       "https://picsum.photos/seed/prop1-6/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop1-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Petts+Wood+Road%2C+Petts+Wood%2C+Orpington%2C+BR5&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.063234%2C51.368901%2C0.083234%2C51.388901&marker=51.378901%2C0.073234",
     "lat": 51.378901,
     "lng": 0.073234,
     "added": {
@@ -47,7 +47,7 @@ export const properties = [
       "https://picsum.photos/seed/prop2-6/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop2-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Crofton+Road%2C+Orpington%2C+BR6&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.073234%2C51.358901%2C0.093234%2C51.378901&marker=51.368901%2C0.083234",
     "lat": 51.368901,
     "lng": 0.083234,
     "added": {
@@ -76,7 +76,7 @@ export const properties = [
       "https://picsum.photos/seed/prop3-6/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop3-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Delancey+Street%2C+Camden%2C+London%2C+NW1&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.152345%2C51.526901%2C-0.132345%2C51.546901&marker=51.536901%2C-0.142345",
     "lat": 51.536901,
     "lng": -0.142345,
     "added": {
@@ -106,7 +106,7 @@ export const properties = [
       "https://picsum.photos/seed/prop4-7/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop4-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Sundridge+Avenue%2C+Bromley%2C+BR1&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.012345%2C51.396901%2C0.032345%2C51.416901&marker=51.406901%2C0.022345",
     "lat": 51.406901,
     "lng": 0.022345,
     "added": {
@@ -137,7 +137,7 @@ export const properties = [
       "https://picsum.photos/seed/prop5-8/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop5-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Chislehurst+Road%2C+Orpington%2C+BR5&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.052345%2C51.376901%2C0.072345%2C51.396901&marker=51.386901%2C0.062345",
     "lat": 51.386901,
     "lng": 0.062345,
     "added": {
@@ -168,7 +168,7 @@ export const properties = [
       "https://picsum.photos/seed/prop6-8/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop6-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Fitzjohns+Avenue%2C+Hampstead%2C+London%2C+NW3&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.187654%2C51.541234%2C-0.167654%2C51.561234&marker=51.551234%2C-0.177654",
     "lat": 51.551234,
     "lng": -0.177654,
     "added": {
@@ -197,7 +197,7 @@ export const properties = [
       "https://picsum.photos/seed/prop7-6/800/600"
     ],
     "floorplan": "https://picsum.photos/seed/prop7-floorplan/800/600",
-    "mapEmbedUrl": "https://www.google.com/maps?q=Euston+Road%2C+London%2C+NW1&output=embed",
+    "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.147890%2C51.518901%2C-0.127890%2C51.538901&marker=51.528901%2C-0.13789",
     "lat": 51.528901,
     "lng": -0.13789,
     "added": {
