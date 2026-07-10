@@ -2,7 +2,7 @@ import { useState } from 'react';
 import properties from '../data/properties';
 import PropertyList from '../components/PropertyList';
 
-export default function Home() {
+export default function Home({ favourites, addFavourite, removeFavourite }) {
   const [criteria, setCriteria] = useState({
     type: 'Any',
     minPrice: '',
@@ -134,7 +134,12 @@ export default function Home() {
         </div>
       </form>
 
-      <PropertyList properties={filteredProperties} />
+      <PropertyList 
+        properties={filteredProperties} 
+        favourites={favourites}
+        addFavourite={addFavourite}
+        removeFavourite={removeFavourite}
+      />
     </div>
   );
 }
