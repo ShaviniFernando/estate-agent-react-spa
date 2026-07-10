@@ -11,7 +11,11 @@ export default function PropertyCard({ property, favourites, addFavourite, remov
   };
 
   return (
-    <div className="property-card">
+    <div 
+      className="property-card"
+      draggable="true"
+      onDragStart={(e) => e.dataTransfer.setData('text/plain', property.id)}
+    >
       <img src={property.images[0]} alt={property.shortDescription} />
       <div>
         <p>{property.type} - {property.bedrooms} bed</p>

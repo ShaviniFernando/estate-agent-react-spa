@@ -125,7 +125,7 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
         </div>
       </form>
 
-      <FavouriteList favourites={favourites} removeFavourite={removeFavourite} clearFavourites={clearFavourites} />
+      <FavouriteList favourites={favourites} addFavourite={addFavourite} removeFavourite={removeFavourite} clearFavourites={clearFavourites} />
 
       <PropertyList 
         properties={filteredProperties} 

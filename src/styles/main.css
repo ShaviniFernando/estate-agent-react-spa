@@ -281,6 +281,38 @@ button:active {
   color: #333;
 }
 
+/* Drag-and-drop zones */
+.favourites-dropzone {
+  border: 2px dashed #0066cc;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  background-color: #f0f7ff;
+  margin-bottom: 2rem;
+  min-height: 60px;
+  transition: background-color 0.2s;
+}
+
+.favourites-dropzone:hover {
+  background-color: #e0efff;
+}
+
+.remove-dropzone {
+  border: 2px dashed #cc2200;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  color: #cc2200;
+  background-color: #fff5f5;
+  font-weight: 500;
+  margin-top: 1rem;
+  cursor: default;
+  transition: background-color 0.2s;
+}
+
+.remove-dropzone:hover {
+  background-color: #ffe8e5;
+}
+
 @media (max-width: 768px) {
   .property-grid {
     grid-template-columns: 1fr;
