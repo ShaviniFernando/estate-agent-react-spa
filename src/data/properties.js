@@ -208,5 +208,5 @@ export const properties = [
     "addedDate": "2023-12-01"
   }
 ];
-e x p o r t   d e f a u l t   p r o p e r t i e s ;  
- 
+
+export default properties;
