@@ -47,7 +47,7 @@ export default function Home({ favourites, addFavourite, removeFavourite }) {
       }
     }
     if (criteria.postcode !== '') {
-      if (!property.postcode.toLowerCase().includes(criteria.postcode.toLowerCase())) {
+      if (!property.postcode.toLowerCase().startsWith(criteria.postcode.toLowerCase())) {
         return false;
       }
     }
