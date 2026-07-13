@@ -17,7 +17,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1600494448850-6013c64ba722?w=800",
       "https://images.unsplash.com/photo-1618219944342-824e40a13285?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop1-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1721244654210-a505a99661e9?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.063234%2C51.368901%2C0.083234%2C51.388901&marker=51.378901%2C0.073234",
     "lat": 51.378901,
     "lng": 0.073234,
@@ -46,7 +46,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800",
       "https://images.unsplash.com/photo-1600494448850-6013c64ba722?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop2-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1556156653-e5a7c69cc263?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.073234%2C51.358901%2C0.093234%2C51.378901&marker=51.368901%2C0.083234",
     "lat": 51.368901,
     "lng": 0.083234,
@@ -75,7 +75,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800",
       "https://images.unsplash.com/photo-1600494448850-6013c64ba722?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop3-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1721244653721-bc681b2dfd27?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.152345%2C51.526901%2C-0.132345%2C51.546901&marker=51.536901%2C-0.142345",
     "lat": 51.536901,
     "lng": -0.142345,
@@ -104,7 +104,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1631048501831-46856f9eaaf2?w=800",
       "https://images.unsplash.com/photo-1611596189148-a74728c484ca?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop4-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1721244654195-943615c56ac4?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.012345%2C51.396901%2C0.032345%2C51.416901&marker=51.406901%2C0.022345",
     "lat": 51.406901,
     "lng": 0.022345,
@@ -133,7 +133,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=800",
       "https://images.unsplash.com/photo-1631048501831-46856f9eaaf2?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop5-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1721244653769-6001b9b4778f?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=0.052345%2C51.376901%2C0.072345%2C51.396901&marker=51.386901%2C0.062345",
     "lat": 51.386901,
     "lng": 0.062345,
@@ -162,7 +162,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?w=800",
       "https://images.unsplash.com/photo-1611596189148-a74728c484ca?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop6-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1721244654346-9be0c0129e36?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.187654%2C51.541234%2C-0.167654%2C51.561234&marker=51.551234%2C-0.177654",
     "lat": 51.551234,
     "lng": -0.177654,
@@ -191,7 +191,7 @@ export const properties = [
       "https://images.unsplash.com/photo-1611596189148-a74728c484ca?w=800",
       "https://images.unsplash.com/photo-1600494448850-6013c64ba722?w=800"
     ],
-    "floorplan": "https://picsum.photos/seed/prop7-floorplan/800/600",
+    "floorplan": "https://images.unsplash.com/photo-1721244653493-29609ecaded9?w=800",
     "mapEmbedUrl": "https://www.openstreetmap.org/export/embed.html?bbox=-0.147890%2C51.518901%2C-0.127890%2C51.538901&marker=51.528901%2C-0.13789",
     "lat": 51.528901,
     "lng": -0.13789,

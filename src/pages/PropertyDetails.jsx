@@ -52,7 +52,7 @@ export default function PropertyDetails() {
           <p>{property.description}</p>
         )}
         {activeTab === 'floorplan' && (
-          <img src={property.floorplan} alt="Floor plan" />
+          <img src={property.floorplan} alt="Floor plan" className="floorplan-img" />
         )}
         {activeTab === 'map' && (
           <iframe
