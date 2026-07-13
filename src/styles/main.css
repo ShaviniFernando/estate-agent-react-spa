@@ -63,7 +63,7 @@ button:active {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   align-items: end;
 }
@@ -71,6 +71,16 @@ button:active {
 .search-form > div {
   display: flex;
   flex-direction: column;
+}
+
+.price-range-field {
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  .search-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .search-form label {
@@ -318,8 +328,12 @@ button:active {
   }
 
   .search-form {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .price-range-field {
+    grid-column: span 1;
   }
 
   .search-form > div {

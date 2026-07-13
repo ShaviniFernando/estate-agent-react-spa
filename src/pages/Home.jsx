@@ -87,7 +87,7 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
           />
         </div>
 
-        <div style={{ minWidth: '250px' }}>
+        <div className="price-range-field">
           <label>Price Range (£)</label>
           <Slider
             range
