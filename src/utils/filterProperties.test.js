@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import { filterProperties } from './filterProperties';
 import properties from '../data/properties';
 
