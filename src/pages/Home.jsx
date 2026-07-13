@@ -6,6 +6,14 @@ import { filterProperties } from '../utils/filterProperties';
 import Select from 'react-select';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+const parseDateString = (dateStr) => {
+  if (!dateStr) return null;
+  const [year, month, day] = dateStr.split('-');
+  return new Date(year, month - 1, day);
+};
 
 const typeOptions = [
   { value: 'Any', label: 'Any' },
@@ -41,6 +49,17 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
       ...prev,
       [name]: value
     }));
+  };
+
+  const handleDateChange = (name, date) => {
+    if (!date) {
+      setCriteria(prev => ({ ...prev, [name]: '' }));
+      return;
+    }
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    setCriteria(prev => ({ ...prev, [name]: `${year}-${month}-${day}` }));
   };
 
   const filteredProperties = filterProperties(properties, criteria);
@@ -110,23 +129,25 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
 
         <div>
           <label htmlFor="dateFrom">Added After</label>
-          <input
-            type="date"
+          <DatePicker
             id="dateFrom"
-            name="dateFrom"
-            value={criteria.dateFrom}
-            onChange={handleChange}
+            selected={parseDateString(criteria.dateFrom)}
+            onChange={(date) => handleDateChange('dateFrom', date)}
+            dateFormat="yyyy-MM-dd"
+            placeholderText="YYYY-MM-DD"
+            isClearable
           />
         </div>
 
         <div>
           <label htmlFor="dateTo">Added Before</label>
-          <input
-            type="date"
+          <DatePicker
             id="dateTo"
-            name="dateTo"
-            value={criteria.dateTo}
-            onChange={handleChange}
+            selected={parseDateString(criteria.dateTo)}
+            onChange={(date) => handleDateChange('dateTo', date)}
+            dateFormat="yyyy-MM-dd"
+            placeholderText="YYYY-MM-DD"
+            isClearable
           />
         </div>
       </form>
