@@ -4,22 +4,20 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import PropertyDetails from './pages/PropertyDetails';
 import Navbar from './components/Navbar';
+import { addToFavourites, removeFromFavourites, clearAllFavourites } from './utils/favourites';
 
 export default function App() {
   const [favourites, setFavourites] = useState([]);
 
   const addFavourite = (id) => {
-    setFavourites((prev) => {
-      if (prev.includes(id)) return prev;
-      return [...prev, id];
-    });
+    setFavourites((prev) => addToFavourites(prev, id));
   };
 
   const removeFavourite = (id) => {
-    setFavourites((prev) => prev.filter((favId) => favId !== id));
+    setFavourites((prev) => removeFromFavourites(prev, id));
   };
 
-  const clearFavourites = () => setFavourites([]);
+  const clearFavourites = () => setFavourites(clearAllFavourites());
 
   return (
     <>
