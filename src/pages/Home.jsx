@@ -31,6 +31,14 @@ const bedroomOptions = [
   { value: '6', label: '6+' }
 ];
 
+const postcodeOptions = [
+  { value: '', label: 'Any' },
+  ...Array.from(new Set(properties.map(p => p.postcode))).sort().map(pc => ({
+    value: pc,
+    label: pc
+  }))
+];
+
 export default function Home({ favourites, addFavourite, removeFavourite, clearFavourites }) {
   const [criteria, setCriteria] = useState({
     type: 'Any',
@@ -117,13 +125,11 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
 
         <div>
           <label htmlFor="postcode">Postcode Area</label>
-          <input
-            type="text"
-            id="postcode"
-            name="postcode"
-            value={criteria.postcode}
-            onChange={handleChange}
-            placeholder="e.g. BR5"
+          <Select
+            inputId="postcode"
+            options={postcodeOptions}
+            value={postcodeOptions.find(opt => opt.value === criteria.postcode) || postcodeOptions[0]}
+            onChange={(selectedOption) => setCriteria(prev => ({...prev, postcode: selectedOption.value}))}
           />
         </div>
 
