@@ -22,7 +22,7 @@ export default function PropertyCard({ property, favourites, addFavourite, remov
       <img src={property.images[0]} alt={property.shortDescription} />
       <div>
         <p>{property.type} - {property.bedrooms} bed</p>
-        <h3>£{property.price.toLocaleString()}</h3>
+        <h3>Rs. {property.price.toLocaleString()}</h3>
         <p>{property.shortDescription}</p>
         <button onClick={handleClick}>
           {isFav ? '★ Remove from favourites' : '☆ Add to favourites'}

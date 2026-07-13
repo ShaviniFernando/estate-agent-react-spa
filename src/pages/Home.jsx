@@ -88,7 +88,7 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
         </div>
 
         <div className="price-range-field">
-          <label>Price Range (£)</label>
+          <label>Price Range (Rs.)</label>
           <Slider
             range
             min={0}
@@ -98,8 +98,8 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
             onChange={(val) => setCriteria(prev => ({...prev, minPrice: val[0], maxPrice: val[1]}))}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem', fontSize: '0.85rem', color: '#555' }}>
-            <span>£{(Number(criteria.minPrice) || 0).toLocaleString()}</span>
-            <span>£{(Number(criteria.maxPrice) || 1500000).toLocaleString()}</span>
+            <span>Rs. {(Number(criteria.minPrice) || 0).toLocaleString()}</span>
+            <span>Rs. {(Number(criteria.maxPrice) || 1500000).toLocaleString()}</span>
           </div>
         </div>
 

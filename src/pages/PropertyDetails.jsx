@@ -22,7 +22,7 @@ export default function PropertyDetails() {
       <ImageGallery images={property.images} />
       <div>
         <h2>{property.type}</h2>
-        <h3>£{property.price.toLocaleString()}</h3>
+        <h3>Rs. {property.price.toLocaleString()}</h3>
         <p>Bedrooms: {property.bedrooms}</p>
       </div>
 
