@@ -13,6 +13,16 @@ const typeOptions = [
   { value: 'Flat', label: 'Flat' }
 ];
 
+const bedroomOptions = [
+  { value: '', label: 'Any' },
+  { value: '1', label: '1' },
+  { value: '2', label: '2' },
+  { value: '3', label: '3' },
+  { value: '4', label: '4' },
+  { value: '5', label: '5' },
+  { value: '6', label: '6+' }
+];
+
 export default function Home({ favourites, addFavourite, removeFavourite, clearFavourites }) {
   const [criteria, setCriteria] = useState({
     type: 'Any',
@@ -68,25 +78,21 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
 
         <div>
           <label htmlFor="minBedrooms">Min Bedrooms</label>
-          <input
-            type="number"
-            id="minBedrooms"
-            name="minBedrooms"
-            value={criteria.minBedrooms}
-            onChange={handleChange}
-            placeholder="Min Bedrooms"
+          <Select
+            inputId="minBedrooms"
+            options={bedroomOptions}
+            value={bedroomOptions.find(opt => opt.value === criteria.minBedrooms) || bedroomOptions[0]}
+            onChange={(selectedOption) => setCriteria(prev => ({...prev, minBedrooms: selectedOption.value}))}
           />
         </div>
 
         <div>
           <label htmlFor="maxBedrooms">Max Bedrooms</label>
-          <input
-            type="number"
-            id="maxBedrooms"
-            name="maxBedrooms"
-            value={criteria.maxBedrooms}
-            onChange={handleChange}
-            placeholder="Max Bedrooms"
+          <Select
+            inputId="maxBedrooms"
+            options={bedroomOptions}
+            value={bedroomOptions.find(opt => opt.value === criteria.maxBedrooms) || bedroomOptions[0]}
+            onChange={(selectedOption) => setCriteria(prev => ({...prev, maxBedrooms: selectedOption.value}))}
           />
         </div>
 
