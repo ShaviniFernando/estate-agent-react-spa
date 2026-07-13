@@ -29,19 +29,19 @@ describe('filterProperties', () => {
   });
 
   it('combines type + minBedrooms + postcode filters and returns the correct subset', () => {
-    // properties.js: prop1 is a House, 3 bed, BR5 — should match
-    // prop5 is a Flat (not a House) in BR5 — should NOT match
+    // prop4 is a House, 4 bed, postcode '200' (Kandy) — should match prefix '2'
+    // prop2 is a Flat (not a House) in postcode '003' — should NOT match
     const result = filterProperties(properties, {
       ...defaultCriteria,
       type: 'House',
       minBedrooms: '3',
-      postcode: 'BR',
+      postcode: '2',
     });
     expect(result.length).toBeGreaterThan(0);
     result.forEach((p) => {
       expect(p.type).toBe('House');
       expect(p.bedrooms).toBeGreaterThanOrEqual(3);
-      expect(p.postcode.toLowerCase()).toMatch(/^br/);
+      expect(p.postcode.toLowerCase()).toMatch(/^2/);
     });
   });
 
