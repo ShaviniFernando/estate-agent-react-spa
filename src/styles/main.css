@@ -62,16 +62,15 @@ button:active {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.5rem;
+  align-items: end;
 }
 
 .search-form > div {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-width: 140px;
 }
 
 .search-form label {
