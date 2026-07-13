@@ -92,14 +92,14 @@ export default function Home({ favourites, addFavourite, removeFavourite, clearF
           <Slider
             range
             min={0}
-            max={1500000}
-            step={5000}
-            value={[Number(criteria.minPrice) || 0, Number(criteria.maxPrice) || 1500000]}
+            max={200000000}
+            step={1000000}
+            value={[Number(criteria.minPrice) || 0, Number(criteria.maxPrice) || 200000000]}
             onChange={(val) => setCriteria(prev => ({...prev, minPrice: val[0], maxPrice: val[1]}))}
           />
           <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem', fontSize: '0.85rem', color: '#555' }}>
             <span>Rs. {(Number(criteria.minPrice) || 0).toLocaleString()}</span>
-            <span>Rs. {(Number(criteria.maxPrice) || 1500000).toLocaleString()}</span>
+            <span>Rs. {(Number(criteria.maxPrice) || 200000000).toLocaleString()}</span>
           </div>
         </div>
 

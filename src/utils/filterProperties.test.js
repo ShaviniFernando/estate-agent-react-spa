@@ -23,9 +23,9 @@ describe('filterProperties', () => {
   });
 
   it('returns only properties with price >= minPrice when minPrice is set', () => {
-    const result = filterProperties(properties, { ...defaultCriteria, minPrice: '500000' });
+    const result = filterProperties(properties, { ...defaultCriteria, minPrice: '50000000' });
     expect(result.length).toBeGreaterThan(0);
-    result.forEach((p) => expect(p.price).toBeGreaterThanOrEqual(500000));
+    result.forEach((p) => expect(p.price).toBeGreaterThanOrEqual(50000000));
   });
 
   it('combines type + minBedrooms + postcode filters and returns the correct subset', () => {
@@ -48,7 +48,7 @@ describe('filterProperties', () => {
   it('returns an empty array when criteria excludes every property', () => {
     const result = filterProperties(properties, {
       ...defaultCriteria,
-      minPrice: '99999999',
+      minPrice: '999999999',
     });
     expect(result).toHaveLength(0);
   });
