@@ -1,5 +1,6 @@
 import PropertyCard from './PropertyCard';
 
+// Iterates through an array of properties and renders a PropertyCard for each one
 export default function PropertyList({ properties, favourites, addFavourite, removeFavourite }) {
   return (
     <div className="property-grid">

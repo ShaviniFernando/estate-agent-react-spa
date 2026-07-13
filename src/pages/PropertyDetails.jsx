@@ -1,12 +1,12 @@
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Tabs, TabList, Tab, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 import properties from '../data/properties';
 import ImageGallery from '../components/ImageGallery';
 
 export default function PropertyDetails() {
   const { id } = useParams();
   const property = properties.find((p) => p.id === id);
-  const [activeTab, setActiveTab] = useState('description');
 
   if (!property) {
     return (
@@ -26,43 +26,36 @@ export default function PropertyDetails() {
         <p>Bedrooms: {property.bedrooms}</p>
       </div>
 
-      <div className="tab-buttons">
-        <button
-          className={`tab-button${activeTab === 'description' ? ' active' : ''}`}
-          onClick={() => setActiveTab('description')}
-        >
-          Description
-        </button>
-        <button
-          className={`tab-button${activeTab === 'floorplan' ? ' active' : ''}`}
-          onClick={() => setActiveTab('floorplan')}
-        >
-          Floor Plan
-        </button>
-        <button
-          className={`tab-button${activeTab === 'map' ? ' active' : ''}`}
-          onClick={() => setActiveTab('map')}
-        >
-          Map
-        </button>
-      </div>
+      <Tabs>
+        <TabList>
+          <Tab>Description</Tab>
+          <Tab>Floor Plan</Tab>
+          <Tab>Map</Tab>
+        </TabList>
 
-      <div className="tab-content">
-        {activeTab === 'description' && (
-          <p>{property.description}</p>
-        )}
-        {activeTab === 'floorplan' && (
-          <img src={property.floorplan} alt="Floor plan" className="floorplan-img" />
-        )}
-        {activeTab === 'map' && (
-          <iframe
-            src={property.mapEmbedUrl}
-            width="100%"
-            height="400"
-            title="Property location map"
-          ></iframe>
-        )}
-      </div>
+        <TabPanel>
+          <div className="tab-content">
+            <p>{property.description}</p>
+          </div>
+        </TabPanel>
+        
+        <TabPanel>
+          <div className="tab-content">
+            <img src={property.floorplan} alt="Floor plan" className="floorplan-img" />
+          </div>
+        </TabPanel>
+
+        <TabPanel>
+          <div className="tab-content">
+            <iframe
+              src={property.mapEmbedUrl}
+              width="100%"
+              height="400"
+              title="Property location map"
+            ></iframe>
+          </div>
+        </TabPanel>
+      </Tabs>
     </div>
   );
 }

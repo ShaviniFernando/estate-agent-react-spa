@@ -334,7 +334,7 @@ button:active {
   background-color: #ffe8e5;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .property-grid {
     grid-template-columns: 1fr;
   }

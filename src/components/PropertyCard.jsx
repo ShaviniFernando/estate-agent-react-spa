@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// Displays a single property as a card and supports drag-and-drop for favourites
 export default function PropertyCard({ property, favourites, addFavourite, removeFavourite }) {
   const isFav = favourites.includes(property.id);
   const handleClick = () => {
@@ -14,6 +15,7 @@ export default function PropertyCard({ property, favourites, addFavourite, remov
     <div 
       className="property-card"
       draggable="true"
+      // Attach the property ID to the drag event payload for the dropzone to read
       onDragStart={(e) => {
         e.dataTransfer.setData('text/plain', `card:${property.id}`);
         e.dataTransfer.effectAllowed = 'move';
